@@ -24,8 +24,8 @@ function displayCountryInfo(country) {
     const wikipediaUrl = `https://en.wikipedia.org/wiki/${formattedCountryName}`;
 
     countryInfoDiv.innerHTML = `
-        <img src="${country.flags.svg}" alt="Flag" style="width: 200px;"><br>
-        <img src="${country.coatOfArms?.svg || ''}" alt="Coat of Arms" style="width: 100px;"><br>
+        <img src="${country.flags.svg}" alt="Flag" style="width: 300px;"><br>
+        <img src="${country.coatOfArms?.svg || ''}" alt="Coat of Arms" style="width: 200px;"><br>
         🤑Currency: ${Object.values(country.currencies).map(currency => currency.name).join(', ')}<br>
         ⭐Capital: ${country.capital[0]}<br>
         🗣️Languages: ${Object.values(country.languages).join(', ')}<br>
