@@ -23,6 +23,8 @@ function displayCountryInfo(country) {
     const formattedCountryName = country.name.common.replace(/ /g, '_');
     const wikipediaUrl = `https://en.wikipedia.org/wiki/${formattedCountryName}`;
     const amazonSearchUrl = `https://www.amazon.com/s?k=${formattedCountryName}+history+book`;
+    const primaryLanguage = Object.values(country.languages)[0];
+const googleTranslateUrl = `https://translate.google.com/?sl=en&tl=${primaryLanguage}`;
     
     countryInfoDiv.innerHTML = `
         <img src="${country.flags.svg}" alt="Flag" style="width: 250px;"><br>
@@ -34,6 +36,7 @@ function displayCountryInfo(country) {
         🗣️Languages: ${Object.values(country.languages).join(', ')}<br>
         🫂Citizens Referred to As: ${country.demonyms.eng.f}<br>
         📞Calling Code: ${country.idd.root}<br>
+        <a href="${googleTranslateUrl}" target="_blank">🌐Translate ${primaryLanguage} into your native language on Google Translate</a><br>
         <a href="${amazonSearchUrl}" target="_blank">📚Find books about ${country.name.common}'s history on Amazon</a><br>
         <a href="${wikipediaUrl}" target="_blank">🧐Learn more about ${country.name.common} on Wikipedia</a>
     `;
