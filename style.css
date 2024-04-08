@@ -70,7 +70,7 @@ button:hover {
 
 
 
-@keyframes fall {
+/* @keyframes fall {
     0% { top: -600px; }
     100% { top: 100%; }
     
@@ -82,4 +82,4 @@ button:hover {
     animation-duration: 2s;
     animation-timing-function: linear;
     animation-iteration-count: 1;
-}
+} */

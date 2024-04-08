@@ -63,36 +63,36 @@ function displayError(message) {
 }
 
 // Just showing off with a falling flag
-function createFallingFlags(country) {
-    if (!country || !country.flags) {
-        console.error('Country or country flags are undefined');
-        return;
-    }
+// function createFallingFlags(country) {
+//     if (!country || !country.flags) {
+//         console.error('Country or country flags are undefined');
+//         return;
+//     }
 
-    const isMobile = window.innerWidth <= 480; // Check if the screen width is 480 pixels or less
-    const numFlags = isMobile ? Math.floor(Math.random() * 46) + 10 : Math.floor(Math.random() * 76) + 25; // Generate fewer flags on mobile
-    const flagContainer = document.getElementById('flagContainer'); // Get the flag container element
-    if (!flagContainer) {
-        console.error('Flag container does not exist');
-        return;
-    }
+//     const isMobile = window.innerWidth <= 480; // Check if the screen width is 480 pixels or less
+//     const numFlags = isMobile ? Math.floor(Math.random() * 46) + 10 : Math.floor(Math.random() * 76) + 25; // Generate fewer flags on mobile
+//     const flagContainer = document.getElementById('flagContainer'); // Get the flag container element
+//     if (!flagContainer) {
+//         console.error('Flag container does not exist');
+//         return;
+//     }
 
-    for (let i = 0; i < numFlags; i++) {
-        const flag = document.createElement('img');
-        flag.src = country.flags.svg;
-        flag.className = 'flag';
-        flag.style.width = '50px';
-        flag.style.left = Math.random() * window.innerWidth + 'px';
-        flag.style.opacity = '0'; // Set the opacity to 0
-        flag.style.animationDelay = Math.random() * 2 + 's'; // Set the animation-delay property to a random value
-        flagContainer.appendChild(flag); // Append the flag to the flag container
+//     for (let i = 0; i < numFlags; i++) {
+//         const flag = document.createElement('img');
+//         flag.src = country.flags.svg;
+//         flag.className = 'flag';
+//         flag.style.width = '50px';
+//         flag.style.left = Math.random() * window.innerWidth + 'px';
+//         flag.style.opacity = '0'; // Set the opacity to 0
+//         flag.style.animationDelay = Math.random() * 2 + 's'; // Set the animation-delay property to a random value
+//         flagContainer.appendChild(flag); // Append the flag to the flag container
 
-        flag.addEventListener('animationstart', () => {
-            flag.style.opacity = '1'; // Change the opacity to 1 when the animation starts
-        });
+//         flag.addEventListener('animationstart', () => {
+//             flag.style.opacity = '1'; // Change the opacity to 1 when the animation starts
+//         });
 
-        flag.addEventListener('animationend', () => {
-            flag.remove(); // Remove the flag element at the end of the animation
-        });
-    }
-}
+//         flag.addEventListener('animationend', () => {
+//             flag.remove(); // Remove the flag element at the end of the animation
+//         });
+//     }
+// }
