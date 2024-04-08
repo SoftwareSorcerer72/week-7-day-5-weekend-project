@@ -5,10 +5,10 @@ document.getElementById('countryForm').addEventListener('submit', async function
     await fetchCountryDataAndDisplay(countryName);
 });
 
-function clearFlags() {
-    const flags = document.querySelectorAll('.flag');
-    flags.forEach(flag => flag.remove());
-}
+// function clearFlags() {
+//     const flags = document.querySelectorAll('.flag');
+//     flags.forEach(flag => flag.remove());
+// }
 
 // Fetch the country data from the API
 async function fetchCountryDataAndDisplay(countryName) {
