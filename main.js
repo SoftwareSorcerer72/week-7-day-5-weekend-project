@@ -26,15 +26,19 @@ function displayCountryInfo(country) {
     countryInfoDiv.innerHTML = `
         <img src="${country.flags.svg}" alt="Flag" style="width: 200px;"><br>
         <img src="${country.coatOfArms?.svg || ''}" alt="Coat of Arms" style="width: 100px;"><br>
-        Currency: ${Object.values(country.currencies).map(currency => currency.name).join(', ')}<br>
-        Capital: ${country.capital[0]}<br>
-        Languages: ${Object.values(country.languages).join(', ')}<br>
-        <a href="${wikipediaUrl}" target="_blank">Learn more about ${country.name.common} on Wikipedia</a>
+        🤑Currency: ${Object.values(country.currencies).map(currency => currency.name).join(', ')}<br>
+        ⭐Capital: ${country.capital[0]}<br>
+        🗣️Languages: ${Object.values(country.languages).join(', ')}<br>
+        <a href="${wikipediaUrl}" target="_blank">🧐Learn more about ${country.name.common} on Wikipedia</a>
     `;
 }
 
 // Display an error message to the user
 function displayError(message) {
     const countryInfoDiv = document.getElementById('countryInfo');
-    countryInfoDiv.innerHTML = `<p style="color: red;">${message}</p>`;
+    countryInfoDiv.innerHTML = `
+        <p style="color: red;">${message}</p>
+        <img src="/images/parks-and.gif" alt="Error" style="width: 400px;">
+    `;
 }
+
