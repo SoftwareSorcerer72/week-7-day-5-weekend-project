@@ -12,7 +12,7 @@ document.getElementById('countryForm').addEventListener('submit', function(e) {
 function displayCountryInfo(country) {
     const countryInfoDiv = document.getElementById('countryInfo');
     countryInfoDiv.innerHTML = `
-        <img src="${country.flags.svg}" alt="Flag" style="width: 100px;"><br>
+        <img src="${country.flags.svg}" alt="Flag" style="width: 200px;"><br>
         <img src="${country.coatOfArms?.svg || ''}" alt="Coat of Arms" style="width: 100px;"><br>
         Currency: ${Object.values(country.currencies).map(currency => currency.name).join(', ')}<br>
         Capital: ${country.capital[0]}<br>
