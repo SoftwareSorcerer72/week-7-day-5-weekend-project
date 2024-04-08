@@ -24,7 +24,7 @@ function displayCountryInfo(country) {
     const wikipediaUrl = `https://en.wikipedia.org/wiki/${formattedCountryName}`;
     const amazonSearchUrl = `https://www.amazon.com/s?k=${formattedCountryName}+history+book`;
     const primaryLanguage = Object.values(country.languages)[0];
-const googleTranslateUrl = `https://translate.google.com/?sl=en&tl=${primaryLanguage}`;
+    const googleTranslateUrl = `https://translate.google.com/`;
     
     countryInfoDiv.innerHTML = `
         <img src="${country.flags.svg}" alt="Flag" style="width: 250px;"><br>
