@@ -18,6 +18,7 @@ body {
     padding: 20px;
     background: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.9); 
+    border-radius: 10px;
 }
 
 h1 {
@@ -66,3 +67,15 @@ button:hover {
 }
 
 
+@keyframes fall {
+    0% { top: -100px; }
+    100% { top: 100%; }
+}
+
+.flag {
+    position: absolute;
+    animation-name: fall;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}

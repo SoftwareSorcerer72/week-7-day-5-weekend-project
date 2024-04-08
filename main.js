@@ -5,16 +5,25 @@ document.getElementById('countryForm').addEventListener('submit', async function
     await fetchCountryDataAndDisplay(countryName);
 });
 
+function clearFlags() {
+    const flags = document.querySelectorAll('.flag');
+    flags.forEach(flag => flag.remove());
+}
+
 // Fetch the country data from the API
 async function fetchCountryDataAndDisplay(countryName) {
+    clearFlags();
     try {
-        const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
-        const data = await response.json();
-        const country = data[0];
-        displayCountryInfo(country);
+        const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const countryData = await response.json();
+        displayCountryInfo(countryData[0]);
+        createFallingFlags(countryData);
     } catch (error) {
-        console.error('Error fetching country data:', error);
-        displayError('Failed to fetch country data. Please try again.');
+        console.error('An error occurred:', error);
+        displayError(error.message);
     }
 }
 // Display the country information to the user
@@ -51,3 +60,15 @@ function displayError(message) {
     `;
 }
 
+// Just showing off with a falling flag
+function createFallingFlags(country) {
+    const numFlags = Math.floor(Math.random() * 76) + 25; // Generate a random number between 25 and 100
+    for (let i = 0; i < numFlags; i++) {
+        const flag = document.createElement('img');
+        flag.src = country.flags.svg;
+        flag.className = 'flag';
+        flag.style.width = '50px';
+        flag.style.left = Math.random() * window.innerWidth + 'px';
+        document.body.appendChild(flag);
+    }
+}
