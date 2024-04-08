@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Country Information</title>
+    <link rel="stylesheet" href="./style.css"> 
 </head>
 <body>
- <script src="./main.js"></script>   
+    <div class="container">
+        <h1>Find Country Information</h1>
+        <form id="countryForm">
+            <input type="text" id="countryInput" placeholder="Enter a Country Name" required>
+            <button type="submit">Search</button>
+        </form>
+        <div id="countryInfo"></div> 
+    </div>
+    <script src="./main.js"></script> 
 </body>
 </html>
