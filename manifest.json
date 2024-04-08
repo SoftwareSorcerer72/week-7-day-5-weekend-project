@@ -1,0 +1,9 @@
+{
+    "name": "Country Info",
+    "version": "0.0.0.1",
+    "manifest_version": 3,
+    "description": "An extension to get country info",
+    "action": {
+        "default_popup": "index.html"
+    }
+}
