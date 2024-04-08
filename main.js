@@ -38,7 +38,7 @@ function displayError(message) {
     const countryInfoDiv = document.getElementById('countryInfo');
     countryInfoDiv.innerHTML = `
         <p style="color: red;">${message}</p>
-        <img src="/images/parks-and.gif" alt="Error" style="width: 400px;">
+        <img src="/images/parks-and.gif" alt="Error" style="width: 300px;">
     `;
 }
 
