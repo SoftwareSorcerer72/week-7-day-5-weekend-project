@@ -12,18 +12,20 @@ function clearFlags() {
 
 // Fetch the country data from the API
 async function fetchCountryDataAndDisplay(countryName) {
-    clearFlags();
     try {
         const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const countryData = await response.json();
-        displayCountryInfo(countryData[0]);
-        createFallingFlags(countryData);
+        if (countryData[0]) {
+            displayCountryInfo(countryData[0]);
+            createFallingFlags(countryData[0]);
+        } else {
+            console.error('No country data found');
+        }
     } catch (error) {
         console.error('An error occurred:', error);
-        displayError(error.message);
     }
 }
 // Display the country information to the user
@@ -62,13 +64,35 @@ function displayError(message) {
 
 // Just showing off with a falling flag
 function createFallingFlags(country) {
-    const numFlags = Math.floor(Math.random() * 76) + 25; // Generate a random number between 25 and 100
+    if (!country || !country.flags) {
+        console.error('Country or country flags are undefined');
+        return;
+    }
+
+    const isMobile = window.innerWidth <= 480; // Check if the screen width is 480 pixels or less
+    const numFlags = isMobile ? Math.floor(Math.random() * 46) + 10 : Math.floor(Math.random() * 76) + 25; // Generate fewer flags on mobile
+    const flagContainer = document.getElementById('flagContainer'); // Get the flag container element
+    if (!flagContainer) {
+        console.error('Flag container does not exist');
+        return;
+    }
+
     for (let i = 0; i < numFlags; i++) {
         const flag = document.createElement('img');
         flag.src = country.flags.svg;
         flag.className = 'flag';
         flag.style.width = '50px';
         flag.style.left = Math.random() * window.innerWidth + 'px';
-        document.body.appendChild(flag);
+        flag.style.opacity = '0'; // Set the opacity to 0
+        flag.style.animationDelay = Math.random() * 2 + 's'; // Set the animation-delay property to a random value
+        flagContainer.appendChild(flag); // Append the flag to the flag container
+
+        flag.addEventListener('animationstart', () => {
+            flag.style.opacity = '1'; // Change the opacity to 1 when the animation starts
+        });
+
+        flag.addEventListener('animationend', () => {
+            flag.remove(); // Remove the flag element at the end of the animation
+        });
     }
 }

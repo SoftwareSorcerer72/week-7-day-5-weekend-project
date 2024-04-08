@@ -68,8 +68,9 @@ button:hover {
 
 
 @keyframes fall {
-    0% { top: -100px; }
+    0% { top: -600px; }
     100% { top: 100%; }
+    
 }
 
 .flag {
@@ -77,5 +78,5 @@ button:hover {
     animation-name: fall;
     animation-duration: 2s;
     animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
 }
