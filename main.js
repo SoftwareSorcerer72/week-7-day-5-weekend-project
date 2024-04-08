@@ -27,7 +27,7 @@ function displayCountryInfo(country) {
         Currency: ${Object.values(country.currencies).map(currency => currency.name).join(', ')}<br>
         Capital: ${country.capital[0]}<br>
         Languages: ${Object.values(country.languages).join(', ')}<br>
-        <a href="${wikipediaUrl}" target="_blank">More about ${country.name.common}</a>
+        <a href="${wikipediaUrl}" target="_blank">Learn more about ${country.name.common} on Wikipedia</a>
     `;
 }
 
