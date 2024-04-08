@@ -49,3 +49,13 @@ button {
 button:hover {
     background: #0056b3;
 }
+
+#countryInfo img {
+    display: block; 
+    margin: auto; 
+    width: auto; 
+    height: auto; 
+    margin-top: 10px;
+}
+
+
