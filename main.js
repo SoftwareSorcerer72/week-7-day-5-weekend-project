@@ -62,7 +62,7 @@ function displayError(message) {
     `;
 }
 
-// falling flags animation but I thought it looked tacky. Uncomment it here, in the div on the html adn the css to try it out
+// falling flags animation but I thought it looked tacky. Uncomment it here, in the div on the html, and the css to try it out
 
 // function createFallingFlags(country) {
 //     if (!country || !country.flags) {
