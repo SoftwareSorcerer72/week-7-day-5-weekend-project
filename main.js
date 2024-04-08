@@ -62,7 +62,8 @@ function displayError(message) {
     `;
 }
 
-// Just showing off with a falling flag
+// falling flags animation but I thought it looked tacky. Uncomment it her, in the div on the html adn the css to try it out
+
 // function createFallingFlags(country) {
 //     if (!country || !country.flags) {
 //         console.error('Country or country flags are undefined');
